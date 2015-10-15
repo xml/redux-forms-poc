@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import {initialize} from 'redux-form';
 
 import ContactForm from '../components/simple-form/SimpleForm.js';
-// We define mapStateToProps where we'd normally use the @connect
-// decorator so the data requirements are clear upfront, but then
-// export the decorated component after the main class definition so
-// the component can be tested w/ and w/o being connected.
-// See: http://rackt.github.io/redux/docs/recipes/WritingTests.html
+
 const mapStateToProps = (state) => ({
   counter : state.counter
 });
@@ -20,19 +16,15 @@ export class HomeView extends React.Component {
   constructor () {
     super();
   }
-  handleSubmit(event, data, three, four, five) {
+  handleSubmit(event, data) {
     event.preventDefault();
-    console.log(event);
-    console.log(data);
-    console.log(three);
-    console.log(four);
-    console.log(five);
+    console.log(event); // this should be the data, but is an event
+    console.log(data); // no data here, either...
     console.log('Submission received!', data);
-    this.props.dispatch(initialize('contact', {})); // clear form
+    this.props.dispatch(initialize('contact', {})); // clear form: THIS works
     return false;
   }
-  // normally you'd import an action creator, but I don't want to create
-  // a file that you're just going to delete anyways!
+
   _increment () {
     this.props.dispatch({ type : 'COUNTER_INCREMENT' });
   }
