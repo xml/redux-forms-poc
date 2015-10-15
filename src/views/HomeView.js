@@ -2,7 +2,7 @@ import React       from 'react';
 import { connect } from 'react-redux';
 import {initialize} from 'redux-form';
 
-import ContactForm from '../components/simple-form/SimpleForm.js';
+import ContactForm from '../components/contact-form/ContactForm.js';
 
 const mapStateToProps = (state) => ({
   counter : state.counter
