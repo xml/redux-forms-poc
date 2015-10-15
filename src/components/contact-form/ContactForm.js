@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connectReduxForm} from 'redux-form';
 
 function validateContact(data) {
-  console.log("validating");
+  console.log('validating');
   console.log(data);
   const errors = {};
   if (!data.name) {
@@ -28,7 +28,7 @@ class ContactForm extends Component {
   render() {
     const { fields: {name, address, phone}, handleSubmit } = this.props;
     return (
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit(this.props.handleSubmit)}>
         <label>Name</label>
         <input type="text" {...name}/>     {/* will pass value, onBlur and onChange */}
         {name.error && name.touched && <div>{name.error}</div>}
@@ -41,7 +41,7 @@ class ContactForm extends Component {
         <input type="text" {...phone}/>    {/* will pass value, onBlur and onChange */}
         {phone.error && phone.touched && <div>{phone.error}</div>}
 
-        <button type='submit'>Submit</button>
+        <button type='submit' onClick={handleSubmit} >Submit</button>
       </form>
     );
   }

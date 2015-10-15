@@ -16,13 +16,9 @@ export class HomeView extends React.Component {
   constructor () {
     super();
   }
-  handleSubmit(event, data) {
-    event.preventDefault();
-    console.log(event); // this should be the data, but is an event
-    console.log(data); // no data here, either...
+  handleSubmit(data) {
     console.log('Submission received!', data);
     this.props.dispatch(initialize('contact', {})); // clear form: THIS works
-    return false;
   }
 
   _increment () {
@@ -31,12 +27,6 @@ export class HomeView extends React.Component {
 
 
   render () {
-    const fields = {
-      name: '',
-      address: '',
-      phone: ''
-    };
-
     return (
       <div className='container text-center'>
         <h1>Welcome to the React Redux Starter Kit</h1>
@@ -45,7 +35,7 @@ export class HomeView extends React.Component {
                 onClick={::this._increment}>
           Increment
         </button>
-        <ContactForm handleSubmit={this.handleSubmit.bind(this)} fields={fields} />
+        <ContactForm onSubmit={this.handleSubmit.bind(this)} />
       </div>
     );
   }
