@@ -25,11 +25,15 @@
     "history": "^1.9.0",
     "immutable": "^3.7.4",
     "invariant": "^2.1.0",
+    "joi": "^6.9.0",
+    "joi-validation-strategy": "^0.2.1",
     "react": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
     "react-redux": "^3.0.0-alpha",
     "react-router": "1.0.0-rc1",
+    "react-validation-mixin": "^5.2.2",
     "redux": "^3.0.0",
+    "redux-form": "^2.1.0",
     "yargs": "^3.18.0"
   },
   "devDependencies": {
